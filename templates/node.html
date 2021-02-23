@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-6">
+                <h5 class="mb-3">Parent Nodes</h5>
+            </div>
+            <div class="col-6 text-right">
+                <a class="btn btn-outline-primary mb-3 mr-1" href="#carouselParents" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a class="btn btn-outline-primary mb-3 " href="#carouselParents" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="carouselParents" class="carousel slide" data-ride="carousel" data-interval="10000">
+                    <div class="carousel-inner">
+                        {% for some_parents in parents %}
+                        {% if loop.index == 1 %}
+                        <div class="carousel-item active">
+                        {% else %}
+                        <div class="carousel-item">
+                        {% endif %}
+                            <div class="row">
+                            {% for parent in some_parents %}
+                            <div class="col-sm-6 col-lg-3 mt-3">
+                                <div class="card h-100 w-100">
+                                    <div class="card-header text-center"><h5> {{ parent.name }} </h5></div>
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center">{{ parent.type }}</h5>
+                                        <p class="card-text">{{ parent.description }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5 mb-5" style="height: 450px">
+          <div class="col-3">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Description</a>
+              <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Nodes</a>
+              <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Schema</a>
+              <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Details</a>
+            </div>
+          </div>
+          <div class="col-9">
+            <div class="tab-content" id="v-pills-tabContent">
+              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+              </div>
+              <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+              </div>
+              <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+              <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <h5 class="mb-3">Child Nodes</h5>
+            </div>
+            <div class="col-6 text-right">
+                <a class="btn btn-outline-primary mb-3 mr-1" href="#carouselChildren" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a class="btn btn-outline-primary mb-3 " href="#carouselChildren" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="carouselChildren" class="carousel slide" data-ride="carousel" data-interval="10000">
+                    <div class="carousel-inner">
+                        {% for some_children in children %}
+                        {% if loop.index == 1 %}
+                        <div class="carousel-item active">
+                        {% else %}
+                        <div class="carousel-item">
+                        {% endif %}
+                            <div class="row">
+                            {% for child in some_children %}
+                            <div class="col-sm-6 col-lg-3 mt-3">
+                                <div class="card h-100 w-100">
+                                    <div class="card-header text-center"><h5> {{ child.name }} </h5></div>
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center">{{ child.type }}</h5>
+                                        <p class="card-text">{{ child.description }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
