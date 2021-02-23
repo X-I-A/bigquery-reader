@@ -1,4 +1,5 @@
 # Internal Debug
+models/
 tests/debug/
 tests/big_input/
 

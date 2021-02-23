@@ -1,0 +1,11 @@
+{
+  "source": "test_builder.test1",
+  "time_partitioning": {
+    "type_": "HOUR",
+    "field": "budat"
+  },
+  "clustering_fields": [
+    "mtart"
+  ],
+  "write_disposition": "WRITE_TRUNCATE"
+}
